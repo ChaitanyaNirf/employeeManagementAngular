@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col-12">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Role Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let role of roleList; let srNo = index">
+                    <td>{{srNo+1}}</td>
+                    <td>{{role.role}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+<!-- <div class="row">
+    <div class="col-4">
+        <ul>
+            <li *ngFor="let item of roleList">{{item.role}}</li>
+        </ul>
+    </div>
+    <div class="col-4">
+        <select>
+            <option *ngFor="let item of roleList" [value]="item.roleId">{{item.role}}</option>
+        </select>
+    </div>
+</div> -->
+
+
+
+<!-- <p>roles works!</p>
+<div class="row">
+    <div class="col-2">
+        Public Name : {{firstName}} <br>
+    </div>
+    <div class="col-2">
+        Current Date time : {{showCurrentDate()}}
+    </div>
+    <div class="col-2">
+        Version : {{version}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <input type = "text" [value]="firstName" class="form-control">
+    </div>
+    <div class="col-3">
+        <input type = "text" [(ngModel)]="firstName">
+    </div>
+    <div class="col-3">
+        <input [type]="inputType"/>
+    </div>
+    <div class="col-3">
+        <select [(ngModel)]="selectedState">
+            <option value = "MH">MH</option>
+            <option value="GOA">GOA</option>
+            <option value="UP">UP</option>
+        </select> >
+    </div>
+</div>
+
+<div class="row">
+    <p>{{selectedState}}</p>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <button class="btn btn-success" (click)="showWelcomeAlert()">Show Alert</button>
+    </div>
+    <div class="col-3">
+        <input type="text" [(ngModel)]="msg"/><br>
+        <button class="btn btn-success" (click)="showMessage(msg)">Show message</button>
+    </div>
+</div> -->
