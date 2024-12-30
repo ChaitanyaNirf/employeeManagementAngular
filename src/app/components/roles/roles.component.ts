@@ -3,6 +3,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule, } from '@angular/forms';
 import { IRole } from '../../model/interface/roles';
 import { CommonModule } from '@angular/common';
+import { IApiResponse } from '../../model/interface/apiResponse';
 
 @Component({
   selector: 'app-roles',
@@ -29,7 +30,7 @@ export class RolesComponent implements OnInit {
   }
 
   getAllRoles() {
-    this.http.get("https://freeapi.miniprojectideas.com/api/ClientStrive/GetAllRoles").subscribe((res:any) => {
+    this.http.get<IApiResponse>("https://freeapi.miniprojectideas.com/api/ClientStrive/GetAllRoles").subscribe((res:IApiResponse) => {
       this.roleList = res.data;
     })
   }

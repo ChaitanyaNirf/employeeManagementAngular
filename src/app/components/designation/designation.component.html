@@ -1,1 +1,54 @@
-<p>designation works!</p>
+<!-- Using control flow statement -->
+
+<div class="row">
+    @for (designation of designationList; track $index) {
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">{{designation.designation}}</h4>
+                  <p class="card-text">This is a {{designation.designation}} card with Id: {{designation.designationId}}</p>
+                  <a href="#" class="card-link">Sr No: {{$index+1}}</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div>
+              </div>        
+        </div>
+    }
+</div>
+
+
+<!-- Using *ngFor directive -->
+<!-- <div class="row">
+    <div class="col-3">
+        <div class="card">
+            <div class="card-body" *ngFor="let designation of designationList; let srNo = index">
+                <h4 class="card-title">{{designation.designation}}</h4>
+                <p class="card-text">This is a {{designation.designation}} card with Id: {{designation.designationId}}
+                </p>
+                <a href="#" class="card-link">Sr No: {{srNo+1}}</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>
+
+    </div>
+</div> -->
+
+
+<!-- If we want to display the data in form of a table -->
+<!-- <div class="row">
+    <div class="col-12">
+        <table class = "table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Designation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let designation of designationList; let srNo = index">
+                    <td>{{srNo+1}}</td>
+                    <td>{{designation.designation}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> -->
