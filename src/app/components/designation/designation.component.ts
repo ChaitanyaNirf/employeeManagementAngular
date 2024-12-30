@@ -14,6 +14,7 @@ export class DesignationComponent implements OnInit {
 
   private service;
   designationList : IDesignation[] = [];
+  showLoader : boolean = true;
   constructor(private httpClient : HttpClient){
     this.service = new MasterService(httpClient);
   }
@@ -21,8 +22,10 @@ export class DesignationComponent implements OnInit {
   ngOnInit(): void {
     this.service.getDesignations().subscribe((res: IApiResponse) => {
       this.designationList = res.data;
+      this.showLoader = false;
     }, error=>{
       console.log(`Error getting designations ${JSON.stringify(error)}`);
+      this.showLoader = false;
       alert(`Error getting designations`);
     });
   }

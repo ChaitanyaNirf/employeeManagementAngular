@@ -1,17 +1,24 @@
 <!-- Using control flow statement -->
 
 <div class="row">
-    @for (designation of designationList; track $index) {
+    @if (showLoader) {
+        <div class="d-flex justify-content-center align-items-center col-12">
+            <div class="spinner-border"></div>
+        </div>
+    }@else {
+        @for (designation of designationList; track $index) {
         <div class="col-3">
             <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">{{designation.designation}}</h4>
-                  <p class="card-text">This is a {{designation.designation}} card with Id: {{designation.designationId}}</p>
-                  <a href="#" class="card-link">Sr No: {{$index+1}}</a>
-                  <a href="#" class="card-link">Another link</a>
+                    <h4 class="card-title">{{designation.designation}}</h4>
+                    <p class="card-text">This is a {{designation.designation}} card with Id: {{designation.designationId}}
+                    </p>
+                    <a href="#" class="card-link">Sr No: {{$index+1}}</a>
+                    <a href="#" class="card-link">Another link</a>
                 </div>
-              </div>        
+            </div>
         </div>
+        }
     }
 </div>
 
