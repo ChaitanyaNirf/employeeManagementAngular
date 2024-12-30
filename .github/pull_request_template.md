@@ -3,7 +3,7 @@
 
 #### `issue no/tracking Id:`
 
-#### `Description : `
+#### `Description: `
 
 #### `Fix:`
 
@@ -11,4 +11,4 @@
 
 #### `Breaking change: [Y/N]` 
 
-#### `UI PR :`
+#### `Backend PR:`
