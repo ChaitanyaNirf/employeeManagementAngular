@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core'
 import { Client } from '../../model/class/Client'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ClientService } from '../../services/client/client.service';
 import { IApiResponse } from '../../model/interface/apiResponse';
@@ -35,7 +35,7 @@ export class ClientComponent implements OnInit {
     })
   }
 
-  saveClient(){
+  saveClient(form : NgForm){
     this.clientService.saveClient(this.clientObj).subscribe((res: IApiResponse) => {
       if(res.result){
         alert("Successfully saved the client");
@@ -43,7 +43,7 @@ export class ClientComponent implements OnInit {
         alert(res.message);
       }
       this.loadClient();
-      this.clearClientObject();
+      this.clearClientObject(form);
     })
   }
 
@@ -67,8 +67,9 @@ export class ClientComponent implements OnInit {
     }
   }
 
-  public clearClientObject(){
+  public clearClientObject(form: NgForm){
     this.clientObj = new Client();
+    form.reset(this.clientObj);
   }
 
 }
