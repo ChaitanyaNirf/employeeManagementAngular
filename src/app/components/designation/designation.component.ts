@@ -15,7 +15,7 @@ export class DesignationComponent implements OnInit {
   private service;
   designationList : IDesignation[] = [];
   showLoader : boolean = true;
-  constructor(private httpClient : HttpClient){
+  constructor(private readonly httpClient : HttpClient){
     this.service = new MasterService(httpClient);
   }
 

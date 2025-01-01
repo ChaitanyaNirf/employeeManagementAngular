@@ -23,6 +23,14 @@
                                 <td>{{client.contactPersonName}}</td>
                                 <td>{{client.contactNo}}</td>
                                 <td>{{client.city}}</td>
+                                <td>
+                                    <div class="row pt-2">
+                                        <button type="button" class = "btn btn-primary" (click)="updateClient(client)">Update</button> <br>
+                                    </div>
+                                    <div class="row pt-2">
+                                        <button type="button" class = "btn btn-danger" (click)="deleteClient(client.clientId)">Delete</button> <br>
+                                    </div>
+                                </td>
                             </tr>
                         }
                     </tbody>
@@ -80,10 +88,10 @@
                 </div>
                 <div class="row pt-2">
                     <div class="col-6 text-center">
-                        <button class="btn btn-primary" (click)="clearClientObject()">Reset</button>
+                        <button class="btn btn-warning" (click)="clearClientObject()">Reset</button>
                     </div>
                     <div class="col-6 text-center">
-                        <button class="btn btn-success" (click)="saveClient()">Save Client</button>
+                        <button class="btn btn-success" (click)="saveClient()">{{this.clientObj.clientId == 0 ? "Save Client" : "Update Client"}}</button>
                     </div>
                 </div>
             </div>
