@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MasterService } from '../../services/master.service';
+import { MasterService } from '../../services/master/master.service';
 import { HttpClient } from '@angular/common/http';
 import { IDesignation } from '../../model/interface/designations';
 import { CommonModule } from '@angular/common';
