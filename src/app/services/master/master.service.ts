@@ -8,7 +8,7 @@ import { IApiResponse } from '../../model/interface/apiResponse';
 })
 export class MasterService {
 
-  constructor(private http: HttpClient) { 
+  constructor(private readonly http: HttpClient) { 
     
   }
 

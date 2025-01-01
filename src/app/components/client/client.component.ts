@@ -20,7 +20,7 @@ export class ClientComponent implements OnInit {
   //can create an constructor and pass it as well no issues
   httpClient = inject(HttpClient);
 
-  private clientService;
+  private readonly clientService;
   constructor(){
     this.clientService = new ClientService(this.httpClient);
   }
@@ -45,6 +45,26 @@ export class ClientComponent implements OnInit {
       this.loadClient();
       this.clearClientObject();
     })
+  }
+
+  updateClient(client : Client){
+    //create a shallow copy of the object, so the original client is not updated until saved
+    this.clientObj = {...client};
+  }
+
+
+  deleteClient(clientId : number){
+    const confirmDelete = confirm("Are you sure you want to delete this client?");
+    if(confirmDelete){
+      this.clientService.deleteClient(clientId).subscribe((res: IApiResponse) => {
+        if(res.result){
+          alert("Successfully deleted the client");
+        }else{
+          alert(res.message);
+        }
+        this.loadClient();
+      })
+    }
   }
 
   public clearClientObject(){
