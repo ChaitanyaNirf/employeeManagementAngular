@@ -10,7 +10,7 @@ import { environment } from '../../../environments/environment';
 })
 export class ClientService {
 
-  constructor(private httpclient: HttpClient) {
+  constructor(private readonly httpclient: HttpClient) {
       
   }
 
