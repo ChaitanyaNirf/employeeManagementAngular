@@ -7,7 +7,7 @@
             <div class="card-body">
                 <table class="table table-bordered table-striped">
                     <thead>
-                        <tr> 
+                        <tr>
                             <th>Project Name</th>
                             <th>Company Name</th>
                             <th>Person Name</th>
@@ -48,43 +48,61 @@
                     <div class="row">
                         <div class="col-6">
                             <label for="">Project Name</label>
-                            <input type="text"  class="form-control">
+                            <input type="text" class="form-control">
                         </div>
                         <div class="col-6">
                             <label for="">Start Date</label>
-                            <input type="date"  class="form-control">
+                            <input type="date" class="form-control">
                         </div>
                         <div class="col-6">
                             <label for="">Expected End Date</label>
-                            <input type="date"  class="form-control">
+                            <input type="date" class="form-control">
                         </div>
                         <div class="col-6">
-                            <label for="">State</label>
-                            <input type="text" class="form-control">
+                            <label for="">Complete Date</label>
+                            <input type="datetime" class="form-control">
                         </div>
                         <div class="col-6">
-                            <label for="">Pincode</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-6">
-                            <label for="">Address</label>
-                            <textarea class="form-control"></textarea>
-                        </div>
-                        <div class="col-6">
-                            <label for="">Employee Strength</label>
-                            <input type="text"  class="form-control">
-                        </div>
-                        <div class="col-6">
-                            <label for="">GST No</label>
+                            <label for="">Contact Person</label>
                             <input type="text" class="form-control">
                         </div>
                         <div class="col-6">
                             <label for="">Contact No</label>
-                            <input type="text"  class="form-control">
+                            <input type="text" class="form-control">
                         </div>
                         <div class="col-6">
-                            <label for="">Reg No</label>
+                            <label for="">Contact Email</label>
+                            <input type="email" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Total Employees</label>
                             <input type="text" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Project Cost</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Project Details</label>
+                            <textarea type="text" class="form-control"></textarea>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Client</label>
+                            <select class="form-control">
+                                <option value="">Select Client</option>
+                                <!-- @for (employee of employeeList) {
+                                    <option value="{{employee.employeeId}}">{{employee.employeeName}}</option>
+                                } -->
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Lead By</label>
+                            <select class="form-control">
+                                <option value="">Select Employee</option>
+                                <!-- @for (employee of employeeList) {
+                                    <option value="{{employee.employeeId}}">{{employee.employeeName}}</option>
+                                } -->
+                            </select>
                         </div>
                     </div>
                     <div class="row pt-2">
