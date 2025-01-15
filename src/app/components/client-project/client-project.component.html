@@ -1,0 +1,120 @@
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-success">
+                Client List
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Project Name</th>
+                            <th>Client Name</th>
+                            <th>Lead By</th>
+                            <th>Employee contact </th>
+                            <th>Expected End Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (client of clientProjectList; track $index) {
+                            <tr>
+                                <td>{{$index+1}}</td>
+                                <td>{{client.projectName}}</td>
+                                <td>{{client.clientName}}</td>
+                                <td>{{client.empCode}}</td>
+                                <td>{{client.expectedEndDate}}</td>
+                                <!-- <td>
+                                    <div class="row pt-2">
+                                        <button type="button" class = "btn btn-primary" (click)="updateClient(client)">Update</button> <br>
+                                    </div>
+                                    <div class="row pt-2">
+                                        <button type="button" class = "btn btn-danger" (click)="deleteClient(client.clientId)">Delete</button> <br>
+                                    </div>
+                                </td> -->
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-success">
+                New Client Project
+            </div>
+            <div class="card-body">
+                <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Project Name</label>
+                            <input type="text" formControlName="projectName" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Start Date</label>
+                            <input type="date" formControlName="startDate" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Expected End Date</label>
+                            <input type="date" formControlName="expectedEndDate" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Complete Date</label>
+                            <input type="date" formControlName="completeDate" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Contact Person</label>
+                            <input type="text" formControlName="contactPerson" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Contact No</label>
+                            <input type="text" formControlName="contactPersonContactNo" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Contact Email</label>
+                            <input type="email" formControlName="contactPersonEmailId" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Total Employees</label>
+                            <input type="text" formControlName="totalEmpWorking" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Project Cost</label>
+                            <input type="text" formControlName="projectCost" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Project Details</label>
+                            <textarea type="text" formControlName="projectDetails" class="form-control"></textarea>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Select Client</label>
+                            <select formControlName="clientId" class="form-control">
+                                <option value="">Select Client</option>
+                                @for (client of clientList; track $index) {
+                                <option value="{{client.clientId}}">{{client.companyName}}</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Lead By</label>
+                            <select formControlName="leadByEmpId" class="form-control">
+                                <option value="">Select Employee</option>
+                                @for (employee of employeeList; track $index) {
+                                <option value="{{employee.empId}}"> {{employee.empName}} - {{employee.empCode}}</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row pt-2">
+                        <div class="col-6 text-center">
+                            <button class="btn btn-warning" type="button">Reset</button>
+                        </div>
+                        <div class="col-6 text-center">
+                            <button class="btn btn-success" [disabled]="projectForm.invalid" type="submit">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
