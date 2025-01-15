@@ -29,4 +29,8 @@ export class ClientService {
   public addUpdateClientProject(clientProjectObj: any) : Observable<IApiResponse>{
     return this.httpclient.post<IApiResponse>(environment.API_BASE_PATH + "AddUpdateClientProject", clientProjectObj);
   }
+
+  public getAllClientProjects() : Observable<IApiResponse>{
+    return this.httpclient.get<IApiResponse>(environment.API_BASE_PATH + "GetAllClientProjects");
+  }
 }

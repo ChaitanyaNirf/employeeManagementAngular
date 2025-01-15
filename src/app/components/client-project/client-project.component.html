@@ -9,30 +9,30 @@
                     <thead>
                         <tr>
                             <th>Project Name</th>
-                            <th>Company Name</th>
-                            <th>Person Name</th>
-                            <th>Contact No</th>
-                            <th>City</th>
+                            <th>Client Name</th>
+                            <th>Lead By</th>
+                            <th>Employee contact </th>
+                            <th>Expected End Date</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- @for (client of clientList; track $index) {
+                        @for (client of clientProjectList; track $index) {
                             <tr>
                                 <td>{{$index+1}}</td>
-                                <td>{{client.companyName}}</td>
-                                <td>{{client.contactPersonName}}</td>
-                                <td>{{client.contactNo}}</td>
-                                <td>{{client.city}}</td>
-                                <td>
+                                <td>{{client.projectName}}</td>
+                                <td>{{client.clientName}}</td>
+                                <td>{{client.empCode}}</td>
+                                <td>{{client.expectedEndDate}}</td>
+                                <!-- <td>
                                     <div class="row pt-2">
                                         <button type="button" class = "btn btn-primary" (click)="updateClient(client)">Update</button> <br>
                                     </div>
                                     <div class="row pt-2">
                                         <button type="button" class = "btn btn-danger" (click)="deleteClient(client.clientId)">Delete</button> <br>
                                     </div>
-                                </td>
+                                </td> -->
                             </tr>
-                        } -->
+                        }
                     </tbody>
                 </table>
             </div>

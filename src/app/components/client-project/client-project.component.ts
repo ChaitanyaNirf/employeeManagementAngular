@@ -7,6 +7,7 @@ import { IEmployee } from '../../model/interface/employee';
 import { IApiResponse } from '../../model/interface/apiResponse';
 import { ClientService } from '../../services/client/client.service';
 import { Client } from '../../model/class/Client';
+import { IClientProject } from '../../model/interface/clientProject';
 
 @Component({
   selector: 'app-client-project',
@@ -20,6 +21,7 @@ export class ClientProjectComponent implements OnInit {
   // private readonly clientService;
   employeeList: IEmployee[] = [];
   clientList: Client[] = [];
+  clientProjectList: IClientProject[] = [];
   //can create an constructor and pass it as well no issues
   httpClient = inject(HttpClient);
   employeeService = inject(EmployeeService);
@@ -35,9 +37,20 @@ export class ClientProjectComponent implements OnInit {
     try {
       this.getAllEmployees();
       this.getAllCLients();
+      this.getAllClientProjects();
     } catch (error) {
       console.log("Failed to load data");
     }
+  }
+
+  
+  getAllClientProjects() {
+    //load client projects
+    this.clientService.getAllClientProjects().subscribe((res) => {
+      if(res.result && res.data){
+        this.clientProjectList = res.data;
+      }
+    })
   }
 
   getAllEmployees() {
