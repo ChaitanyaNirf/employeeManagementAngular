@@ -24,5 +24,9 @@ export class ClientService {
 
   public deleteClient(clientId : Client["clientId"]) : Observable<IApiResponse>{
     return this.httpclient.delete<IApiResponse>(environment.API_BASE_PATH + "DeleteClientByClientId?clientId=" + clientId);
+
+  }
+  public addUpdateClientProject(clientProjectObj: any) : Observable<IApiResponse>{
+    return this.httpclient.post<IApiResponse>(environment.API_BASE_PATH + "AddUpdateClientProject", clientProjectObj);
   }
 }

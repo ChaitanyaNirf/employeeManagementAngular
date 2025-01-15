@@ -54,6 +54,19 @@ export class ClientProjectComponent implements OnInit {
     })
   }
 
+  onSubmit(){
+    //this is invoked when a button with type submit is invoked
+    console.log(JSON.stringify(this.projectForm.value));
+    this.clientService.addUpdateClientProject(this.projectForm.value).subscribe((res: IApiResponse) => {
+      if(res.result){
+        alert("Successfully saved the client project")
+      }else{
+        alert(res.message);
+      }
+      this.projectForm.reset();
+    })
+  }
+
   //Reactive form
   projectForm: FormGroup = new FormGroup({
     clientProjectId: new FormControl(0),

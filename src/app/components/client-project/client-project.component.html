@@ -44,7 +44,7 @@
                 New Client Project
             </div>
             <div class="card-body">
-                <form [formGroup]="projectForm" #form="ngForm">
+                <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
                     <div class="row">
                         <div class="col-6">
                             <label for="">Project Name</label>
@@ -110,7 +110,7 @@
                             <button class="btn btn-warning" type="button">Reset</button>
                         </div>
                         <div class="col-6 text-center">
-                            <button class="btn btn-success" [disabled]="form.invalid" type="submit">Save</button>
+                            <button class="btn btn-success" [disabled]="projectForm.invalid" type="submit">Save</button>
                         </div>
                     </div>
                 </form>
