@@ -49,15 +49,17 @@
                         <div class="col-6">
                             <label for="">Project Name</label>
                             <input type="text" formControlName="projectName" class="form-control">
-                            @if (projectForm.controls['projectName'].errors?.['required']) {
-                                <div class="text-danger">
-                                    <span>This is Required</span>
-                                </div>
-                            }
-                            @if (projectForm.controls['projectName'].errors?.['minlength']) {
-                                <div class="text-danger">
-                                    <span>Min 4 characters required</span>
-                                </div>
+                            @if (projectForm.controls['projectName'].touched) {
+                                @if (projectForm.controls['projectName'].errors?.['required']) {
+                                    <div class="text-danger">
+                                        <span>This is Required</span>
+                                    </div>
+                                }
+                                @if (projectForm.controls['projectName'].errors?.['minlength']) {
+                                    <div class="text-danger">
+                                        <span>Min 4 characters required</span>
+                                    </div>
+                                }
                             }
                         </div>
                         <div class="col-6">
