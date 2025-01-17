@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { EmployeeService } from '../../services/employee/employee.service';
 import { HttpClient } from '@angular/common/http';
 import { IEmployee } from '../../model/interface/employee';
@@ -83,7 +83,7 @@ export class ClientProjectComponent implements OnInit {
   //Reactive form
   projectForm: FormGroup = new FormGroup({
     clientProjectId: new FormControl(0),
-    projectName: new FormControl("New Project"),
+    projectName: new FormControl("New Project", [Validators.required, Validators.minLength(5)]),
     startDate: new FormControl(new Date()),
     expectedEndDate: new FormControl(new Date()),
     leadByEmpId: new FormControl(0),
