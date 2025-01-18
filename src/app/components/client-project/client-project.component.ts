@@ -86,14 +86,14 @@ export class ClientProjectComponent implements OnInit {
     projectName: new FormControl("New Project", [Validators.required, Validators.minLength(5)]),
     startDate: new FormControl(new Date()),
     expectedEndDate: new FormControl(new Date()),
-    leadByEmpId: new FormControl(0),
+    leadByEmpId: new FormControl(0, [Validators.required]),
     completeDate: new FormControl(new Date()),
     contactPerson: new FormControl(""),
     contactPersonContactNo: new FormControl(""),
     totalEmpWorking: new FormControl(0),
     projectCost: new FormControl(0),
     projectDetails: new FormControl(""),
-    contactPersonEmailId: new FormControl(""),
-    clientId: new FormControl(0)
+    contactPersonEmailId: new FormControl("", [Validators.email]),
+    clientId: new FormControl(0, [Validators.required])
   });
 }
