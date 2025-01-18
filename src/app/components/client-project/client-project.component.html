@@ -23,14 +23,6 @@
                                 <td>{{client.clientName}}</td>
                                 <td>{{client.empCode}}</td>
                                 <td>{{client.expectedEndDate}}</td>
-                                <!-- <td>
-                                    <div class="row pt-2">
-                                        <button type="button" class = "btn btn-primary" (click)="updateClient(client)">Update</button> <br>
-                                    </div>
-                                    <div class="row pt-2">
-                                        <button type="button" class = "btn btn-danger" (click)="deleteClient(client.clientId)">Delete</button> <br>
-                                    </div>
-                                </td> -->
                             </tr>
                         }
                     </tbody>
@@ -49,6 +41,18 @@
                         <div class="col-6">
                             <label for="">Project Name</label>
                             <input type="text" formControlName="projectName" class="form-control">
+                            @if (projectForm.controls['projectName'].touched) {
+                                @if (projectForm.controls['projectName'].errors?.['required']) {
+                                    <div class="text-danger">
+                                        <span>This is Required</span>
+                                    </div>
+                                }
+                                @if (projectForm.controls['projectName'].errors?.['minlength']) {
+                                    <div class="text-danger">
+                                        <span>Min 4 characters required</span>
+                                    </div>
+                                }
+                            }
                         </div>
                         <div class="col-6">
                             <label for="">Start Date</label>
@@ -73,6 +77,13 @@
                         <div class="col-6">
                             <label for="">Contact Email</label>
                             <input type="email" formControlName="contactPersonEmailId" class="form-control">
+                            @if (projectForm.controls['contactPersonEmailId'].touched) {
+                                @if (projectForm.controls['contactPersonEmailId'].errors) {
+                                    <div class="text-danger">
+                                        <span>Invalid Email Id</span>
+                                    </div>
+                                }
+                            }
                         </div>
                         <div class="col-6">
                             <label for="">Total Employees</label>
@@ -94,6 +105,13 @@
                                 <option value="{{client.clientId}}">{{client.companyName}}</option>
                                 }
                             </select>
+                            @if (projectForm.controls['clientId'].touched) {
+                                @if (projectForm.controls['clientId'].errors?.['required']) {
+                                    <div class="text-danger">
+                                        <span>Please select Client</span>
+                                    </div>
+                                }
+                            }
                         </div>
                         <div class="col-6">
                             <label for="">Lead By</label>
@@ -103,6 +121,13 @@
                                 <option value="{{employee.empId}}"> {{employee.empName}} - {{employee.empCode}}</option>
                                 }
                             </select>
+                            @if (projectForm.controls['leadByEmpId'].touched) {
+                                @if (projectForm.controls['leadByEmpId'].errors?.['required']) {
+                                    <div class="text-danger">
+                                        <span>Please select Employee</span>
+                                    </div>
+                                }
+                            }
                         </div>
                     </div>
                     <div class="row pt-2">
