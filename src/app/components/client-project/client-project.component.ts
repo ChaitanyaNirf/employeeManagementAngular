@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule, DatePipe } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { EmployeeService } from '../../services/employee/employee.service';
@@ -8,10 +8,11 @@ import { IApiResponse } from '../../model/interface/apiResponse';
 import { ClientService } from '../../services/client/client.service';
 import { Client } from '../../model/class/Client';
 import { IClientProject } from '../../model/interface/clientProject';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-client-project',
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, DatePipe, AsyncPipe],
   templateUrl: './client-project.component.html',
   styleUrl: './client-project.component.css'
 })
@@ -21,7 +22,13 @@ export class ClientProjectComponent implements OnInit {
   // private readonly clientService;
   employeeList: IEmployee[] = [];
   clientList: Client[] = [];
-  clientProjectList: IClientProject[] = [];
+
+  //implementation without async pipe
+  // clientProjectList: IClientProject[] = [];
+
+  //implementation using async pipe
+
+  clientProjectList$ : Observable<IClientProjectList> = new Observable<IClientProjectList>;
   //can create an constructor and pass it as well no issues
   httpClient = inject(HttpClient);
   employeeService = inject(EmployeeService);
@@ -43,15 +50,22 @@ export class ClientProjectComponent implements OnInit {
     }
   }
 
-  
-  getAllClientProjects() {
-    //load client projects
-    this.clientService.getAllClientProjects().subscribe((res) => {
-      if(res.result && res.data){
-        this.clientProjectList = res.data;
-      }
-    })
+
+  //implementation using async pipe
+  getAllClientProjects(){
+    //get the observable but don't subscribe jsut yet
+    this.clientProjectList$ = this.clientService.getAllClientProjects();
   }
+
+  //implementation without async pipe
+  // getAllClientProjects() {
+  //   //load client projects
+  //   this.clientService.getAllClientProjects().subscribe((res) => {
+  //     if(res.result && res.data){
+  //       this.clientProjectList = res.data;
+  //     }
+  //   })
+  // }
 
   getAllEmployees() {
     //load all clients
@@ -77,6 +91,7 @@ export class ClientProjectComponent implements OnInit {
         alert(res.message);
       }
       this.projectForm.reset();
+      this.getAllClientProjects();
     })
   }
 
@@ -96,4 +111,9 @@ export class ClientProjectComponent implements OnInit {
     contactPersonEmailId: new FormControl("", [Validators.email]),
     clientId: new FormControl(0, [Validators.required])
   });
+}
+
+//implemented for async pipe implementation
+interface IClientProjectList extends IApiResponse{
+    data : IClientProject[]
 }

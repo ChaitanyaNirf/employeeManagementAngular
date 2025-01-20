@@ -19,7 +19,7 @@
                         @for (client of clientList; track $index) {
                             <tr>
                                 <td>{{$index+1}}</td>
-                                <td>{{client.companyName}}</td>
+                                <td>{{client.companyName | uppercase}}</td>
                                 <td>{{client.contactPersonName}}</td>
                                 <td>{{client.contactNo}}</td>
                                 <td>{{client.city}}</td>
