@@ -4,10 +4,11 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ClientService } from '../../services/client/client.service';
 import { IApiResponse } from '../../model/interface/apiResponse';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-client',
-  imports: [FormsModule],
+  imports: [FormsModule, UpperCasePipe],
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })

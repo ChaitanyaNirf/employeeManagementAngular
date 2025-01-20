@@ -16,13 +16,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @for (client of clientProjectList; track $index) {
+                        <!-- implementation of async pipe -->
+                        @for (client of (clientProjectList$ | async)?.data ; track $index) {
                             <tr>
                                 <td>{{$index+1}}</td>
                                 <td>{{client.projectName}}</td>
                                 <td>{{client.clientName}}</td>
                                 <td>{{client.empCode}}</td>
-                                <td>{{client.expectedEndDate}}</td>
+                                <!-- pipe implementation -->
+                                <td>{{client.expectedEndDate | date:'dd-MM-yyyy'}}</td>
                             </tr>
                         }
                     </tbody>
