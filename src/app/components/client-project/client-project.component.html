@@ -134,7 +134,7 @@
                     </div>
                     <div class="row pt-2">
                         <div class="col-6 text-center">
-                            <button class="btn btn-warning" type="button">Reset</button>
+                            <button class="btn btn-warning" type="button" (click)="projectForm.reset()">Reset</button>
                         </div>
                         <div class="col-6 text-center">
                             <button class="btn btn-success" [disabled]="projectForm.invalid" type="submit">Save</button>
